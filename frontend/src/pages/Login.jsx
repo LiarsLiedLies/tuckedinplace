@@ -33,6 +33,7 @@ export default function Login() {
     <div className="card">
       <h2>Log in</h2>
       {location.state?.registered && <p className="success">Account created. Please log in.</p>}
+      {location.state?.reset && <p className="success">Password reset. Please log in with your new password.</p>}
       <form onSubmit={onSubmit}>
         <label>Email</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -41,6 +42,7 @@ export default function Login() {
         {error && <p className="error">{error}</p>}
         <button type="submit" disabled={loading}>{loading ? 'Logging in...' : 'Log in'}</button>
       </form>
+      <p><Link to="/forgot-password">Forgot password?</Link></p>
       <p>No account yet? <Link to="/register">Register</Link></p>
     </div>
   );

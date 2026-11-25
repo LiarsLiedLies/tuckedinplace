@@ -8,6 +8,10 @@ import Register from './pages/Register';
 import UserDashboard from './pages/UserDashboard';
 import OwnerDashboard from './pages/OwnerDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import Profile from './pages/Profile';
+import ChangePassword from './pages/ChangePassword';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 function Unauthorized() {
   const { user } = useAuth();
@@ -33,6 +37,10 @@ export default function App() {
         <Route path="/user/dashboard" element={<ProtectedRoute roles={['USER']}><UserDashboard /></ProtectedRoute>} />
         <Route path="/owner/dashboard" element={<ProtectedRoute roles={['OWNER']}><OwnerDashboard /></ProtectedRoute>} />
         <Route path="/admin/dashboard" element={<ProtectedRoute roles={['ADMIN']}><AdminDashboard /></ProtectedRoute>} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/change-password" element={<ProtectedRoute><ChangePassword /></ProtectedRoute>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

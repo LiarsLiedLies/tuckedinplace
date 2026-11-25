@@ -32,6 +32,12 @@ public class User {
     @Column(nullable = false, length = 20)
     private Role role;
 
+    @Column(length = 500)
+    private String bio;
+
+    @Column(name = "avatar_url", length = 500)
+    private String avatarUrl;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
