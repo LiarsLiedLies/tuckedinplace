@@ -32,7 +32,17 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
-  return <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>;
+  const updateUser = (changes) => {
+    const next = { ...user, ...changes };
+    localStorage.setItem('user', JSON.stringify(next));
+    setUser(next);
+  };
+
+  return (
+      <AuthContext.Provider value={{ user, login, logout, updateUser }}>
+        {children}
+      </AuthContext.Provider>
+  );
 }
 
 export const useAuth = () => useContext(AuthContext);

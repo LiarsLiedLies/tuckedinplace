@@ -13,3 +13,6 @@ button { padding: 9px 14px; border: 0; border-radius: 4px; background: #2980b9; 
 button:disabled { opacity: 0.6; }
 .error { color: #c0392b; }
 .success { color: #27ae60; }
+textarea { padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; font-family: inherit; resize: vertical; }
+.avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin-bottom: 8px; }
+.readonly { background: #eee; }
